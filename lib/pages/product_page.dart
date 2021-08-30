@@ -57,6 +57,7 @@ class _ProductPageState extends State<ProductPage> {
           image: DecorationImage(
             image: AssetImage(imageUrl),
           ),
+          borderRadius: BorderRadius.circular(6),
         ),
       );
     }
@@ -125,6 +126,8 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     Widget content() {
+      int index = -1;
+
       return Container(
         width: double.infinity,
         margin: EdgeInsets.only(top: 17),
@@ -222,7 +225,7 @@ class _ProductPageState extends State<ProductPage> {
                     height: 12,
                   ),
                   Text(
-                    'Unpaved trails and mixed surface are easy when you',
+                    'Unpaved trails and mixed surface are easy when you have the traction and support you need. Casual enough for the daily commute.',
                     style: subtitleTextStyle.copyWith(
                       fontWeight: light,
                     ),
@@ -257,13 +260,60 @@ class _ProductPageState extends State<ProductPage> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: familiarShoes
-                          .map(
-                            (image) => familiarShoesCard(image),
-                          )
-                          .toList(),
+                      children: familiarShoes.map((image) {
+                        index++;
+                        return Container(
+                            margin: EdgeInsets.only(
+                                left: index == 0 ? defaultMargin : 0),
+                            child: familiarShoesCard(image));
+                      }).toList(),
                     ),
                   )
+                ],
+              ),
+            ),
+            // NOTE: BUTTONS
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(defaultMargin),
+              child: Row(
+                children: [
+                  Container(
+                    width: 54,
+                    height: 54,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/button_chat.png',
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 54,
+                      child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          primary: primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          backgroundColor: primaryColor,
+                        ),
+                        child: Text(
+                          ('Add to Cart'),
+                          style: primaryTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: semiBold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -282,6 +332,4 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
   }
-
-  familiarShoesCard(image) {}
 }
