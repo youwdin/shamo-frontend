@@ -100,6 +100,7 @@ class WishListPage extends StatelessWidget {
         header(),
         //emptyWishlist(),
         content(),
+        emptyWishlist(),
       ],
     );
   }
