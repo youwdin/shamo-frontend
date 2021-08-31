@@ -4,7 +4,7 @@ import 'package:shamo/theme.dart';
 class CheckoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget header() {
+    PreferredSizeWidget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
         elevation: 0,
@@ -13,8 +13,28 @@ class CheckoutPage extends StatelessWidget {
       );
     }
 
+    Widget content() {
+      return ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        children: [
+          // NOTE: LIST ITEMS
+          Text(
+            'List Items',
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: medium,
+            ),
+          ),
+        ],
+      );
+    }
+
     return Scaffold(
       backgroundColor: backgroundColor3,
+      appBar: header(),
+      body: content(),
     );
   }
 }
