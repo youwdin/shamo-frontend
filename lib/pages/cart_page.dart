@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/theme.dart';
-
 import 'home/widgets/cart.card.dart';
 
 class CartPage extends StatelessWidget {
