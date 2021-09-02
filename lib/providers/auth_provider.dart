@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:shamo/model/user_model.dart';
-
-import 'package:shamo/models/users_model.dart';
 import 'package:shamo/services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier {

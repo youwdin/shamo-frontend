@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shamo/providers/auth_provider.dart';
 import 'package:shamo/theme.dart';
 
+// ignore: must_be_immutable
 class SignUpPage extends StatelessWidget {
   TextEditingController nameController = TextEditingController(text: '');
   TextEditingController usernameController = TextEditingController(text: '');

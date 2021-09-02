@@ -10,7 +10,8 @@ class AuthService {
     required String email,
     required String password,
   }) async {
-    var url = '$baseUrl/register';
+    // ignore: unused_local_variable
+    var uri = '$baseUrl/register';
     var headers = {'Content-Type': 'application/json'};
     var body = jsonEncode({
       'name': name,
@@ -18,11 +19,15 @@ class AuthService {
       'email': email,
       'password': password,
     });
+
     var response = await http.post(
-      url,
+      Uri(),
       headers: headers,
       body: body,
     );
+
+    print(response.body);
+
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
       UserModel user = UserModel.fromJson(data['user']);
